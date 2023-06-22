@@ -1,0 +1,1098 @@
+{
+    "A202211022138x": {
+        "description": "QIENet_Conv8", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "ConvLSTM",
+                "input_size": 6,
+                "hidden_size": 16,
+                "kernel_size": 3,
+                "num_layers": 3,
+                "batch_first": true,
+                "bias": true,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 16,
+                "out_channels": 16,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 16,
+                "out_channels": 8,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 8,
+                "out_channels": 1,
+                "kernel_size": 3
+            },
+            {
+                "name": "reshape",
+                "shape": [
+                    -1,
+                    1
+                ]
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211022137x": {
+        "description": "QIENet_Conv7", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "ConvLSTM",
+                "input_size": 6,
+                "hidden_size": 16,
+                "kernel_size": 3,
+                "num_layers": 3,
+                "batch_first": true,
+                "bias": true,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x2"
+                ],
+                "1": "x0",
+                "dim": -3
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 19,
+                "out_channels": 16,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 16,
+                "out_channels": 8,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 8,
+                "out_channels": 1,
+                "kernel_size": 3
+            },
+            {
+                "name": "reshape",
+                "shape": [
+                    -1,
+                    1
+                ]
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211022136x": {
+        "description": "QIENet_Conv6", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "ConvLSTM",
+                "input_size": 6,
+                "hidden_size": 16,
+                "kernel_size": 3,
+                "num_layers": 3,
+                "batch_first": true,
+                "bias": true,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x1"
+                ],
+                "1": "x0",
+                "dim": -3
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 19,
+                "out_channels": 16,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 16,
+                "out_channels": 8,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 8,
+                "out_channels": 1,
+                "kernel_size": 3
+            },
+            {
+                "name": "reshape",
+                "shape": [
+                    -1,
+                    1
+                ]
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211022135x": {
+        "description": "QIENet_Conv5", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "ConvLSTM",
+                "input_size": 6,
+                "hidden_size": 16,
+                "kernel_size": 3,
+                "num_layers": 3,
+                "batch_first": true,
+                "bias": true,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x1",
+                    "x2"
+                ],
+                "1": "x0",
+                "dim": -3
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 22,
+                "out_channels": 16,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 16,
+                "out_channels": 8,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 8,
+                "out_channels": 1,
+                "kernel_size": 3
+            },
+            {
+                "name": "reshape",
+                "shape": [
+                    -1,
+                    1
+                ]
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211022038x": {
+        "description": "QIENet_Conv4", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "ConvLSTM",
+                "input_size": 16,
+                "hidden_size": 16,
+                "kernel_size": 3,
+                "num_layers": 3,
+                "batch_first": true,
+                "bias": true,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 16,
+                "out_channels": 16,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 16,
+                "out_channels": 8,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 8,
+                "out_channels": 1,
+                "kernel_size": 3
+            },
+            {
+                "name": "reshape",
+                "shape": [
+                    -1,
+                    1
+                ]
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211022037x": {
+        "description": "QIENet_Conv3", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "ConvLSTM",
+                "input_size": 16,
+                "hidden_size": 16,
+                "kernel_size": 3,
+                "num_layers": 3,
+                "batch_first": true,
+                "bias": true,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x2"
+                ],
+                "1": "x0",
+                "dim": -3
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 19,
+                "out_channels": 16,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 16,
+                "out_channels": 8,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 8,
+                "out_channels": 1,
+                "kernel_size": 3
+            },
+            {
+                "name": "reshape",
+                "shape": [
+                    -1,
+                    1
+                ]
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211022036x": {
+        "description": "QIENet_Conv2", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "ConvLSTM",
+                "input_size": 16,
+                "hidden_size": 16,
+                "kernel_size": 3,
+                "num_layers": 3,
+                "batch_first": true,
+                "bias": true,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x1"
+                ],
+                "1": "x0",
+                "dim": -3
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 19,
+                "out_channels": 16,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 16,
+                "out_channels": 8,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 8,
+                "out_channels": 1,
+                "kernel_size": 3
+            },
+            {
+                "name": "reshape",
+                "shape": [
+                    -1,
+                    1
+                ]
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211022035x": {
+        "description": "QIENet_Conv1", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "ConvLSTM",
+                "input_size": 16,
+                "hidden_size": 16,
+                "kernel_size": 3,
+                "num_layers": 3,
+                "batch_first": true,
+                "bias": true,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x1",
+                    "x2"
+                ],
+                "1": "x0",
+                "dim": -3
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 22,
+                "out_channels": 16,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 16,
+                "out_channels": 8,
+                "kernel_size": 3
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Conv2d",
+                "in_channels": 8,
+                "out_channels": 1,
+                "kernel_size": 3
+            },
+            {
+                "name": "reshape",
+                "shape": [
+                    -1,
+                    1
+                ]
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211012138x": {
+        "description": "QIENet_FC8", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "LSTM",
+                "input_size": 6,
+                "hidden_size": 16,
+                "num_layers": 3,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "Linear",
+                "in_features": 16,
+                "out_features": 16
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 16,
+                "out_features": 8
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 8,
+                "out_features": 1
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211012137x": {
+        "description": "QIENet_FC7", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "LSTM",
+                "input_size": 6,
+                "hidden_size": 16,
+                "num_layers": 3,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x2"
+                ],
+                "1": "x0",
+                "dim": -1
+            },
+            {
+                "name": "Linear",
+                "in_features": 19,
+                "out_features": 16
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 16,
+                "out_features": 8
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 8,
+                "out_features": 1
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211012136x": {
+        "description": "QIENet_FC6", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "LSTM",
+                "input_size": 6,
+                "hidden_size": 16,
+                "num_layers": 3,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x1"
+                ],
+                "1": "x0",
+                "dim": -1
+            },
+            {
+                "name": "Linear",
+                "in_features": 19,
+                "out_features": 16
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 16,
+                "out_features": 8
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 8,
+                "out_features": 1
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211012135x": {
+        "description": "QIENet_FC5", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "LSTM",
+                "input_size": 6,
+                "hidden_size": 16,
+                "num_layers": 3,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x1",
+                    "x2"
+                ],
+                "1": "x0",
+                "dim": -1
+            },
+            {
+                "name": "Linear",
+                "in_features": 22,
+                "out_features": 16
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 16,
+                "out_features": 8
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 8,
+                "out_features": 1
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211012038x": {
+        "description": "QIENet_FC4", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "LSTM",
+                "input_size": 16,
+                "hidden_size": 16,
+                "num_layers": 3,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "Linear",
+                "in_features": 16,
+                "out_features": 16
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 16,
+                "out_features": 8
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 8,
+                "out_features": 1
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211012037x": {
+        "description": "QIENet_FC3", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "LSTM",
+                "input_size": 16,
+                "hidden_size": 16,
+                "num_layers": 3,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x2"
+                ],
+                "1": "x0",
+                "dim": -1
+            },
+            {
+                "name": "Linear",
+                "in_features": 19,
+                "out_features": 16
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 16,
+                "out_features": 8
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 8,
+                "out_features": 1
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211012036x": {
+        "description": "QIENet_FC2", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "LSTM",
+                "input_size": 16,
+                "hidden_size": 16,
+                "num_layers": 3,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x1"
+                ],
+                "1": "x0",
+                "dim": -1
+            },
+            {
+                "name": "Linear",
+                "in_features": 19,
+                "out_features": 16
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 16,
+                "out_features": 8
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 8,
+                "out_features": 1
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    },
+    "A202211012035x": {
+        "description": "QIENet_FC1", // name of the model
+        "device": "cuda", // cpu or cuda
+        "network": [
+            {
+                "name": "LSTM",
+                "input_size": 16,
+                "hidden_size": 16,
+                "num_layers": 3,
+                "dropout_rate": 0.0
+            },
+            {
+                "name": "select",
+                "dim": 1,
+                "index": -1
+            },
+            {
+                "name": "concat",
+                "0": [
+                    "x0",
+                    "x1",
+                    "x2"
+                ],
+                "1": "x0",
+                "dim": -1
+            },
+            {
+                "name": "Linear",
+                "in_features": 22,
+                "out_features": 16
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 16,
+                "out_features": 8
+            },
+            {
+                "name": "ReLU"
+            },
+            {
+                "name": "Linear",
+                "in_features": 8,
+                "out_features": 1
+            }
+        ],
+        "is_train": true,
+        "is_validate": true,
+        "is_test": true,
+        "n_splits": 5,
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20,
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    }
+}
