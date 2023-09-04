@@ -1,0 +1,552 @@
+{
+    "network": [
+        {
+            "init": {
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 29,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "x0"
+            }
+        },
+        {
+            "init": {
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {}
+        },
+        // DW-ASPP
+        {
+            "init": {
+                "name": "DepthwiseASPP",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 64,
+                    "dilations": [
+                        1,
+                        3,
+                        6,
+                        9
+                    ],
+                    "bias": true,
+                    "stride": 1,
+                    "is_bn": true,
+                    "is_act": true,
+                    "bias2": true,
+                    "stride2": 1,
+                    "is_bn2": true,
+                    "is_act2": true
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "f0"
+            }
+        },
+        // DW-U
+        {
+            "init": {
+                "name": "nn.MaxPool2d",
+                "args": {
+                    "kernel_size": 3
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "x1"
+            }
+        },
+        {
+            "init": {
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 128,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x1",
+                "out": "x1"
+            }
+        },
+        {
+            "init": {
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 128,
+                    "out_channels": 128,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x1",
+                "out": "x1"
+            }
+        },
+        {
+            "init": {
+                "name": "nn.MaxPool2d",
+                "args": {
+                    "kernel_size": 2
+                }
+            },
+            "forward": {
+                "in": "x1",
+                "out": "x0"
+            }
+        },
+        {
+            "init": {
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 128,
+                    "out_channels": 256,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "x0"
+            }
+        },
+        {
+            "init": {
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 256,
+                    "out_channels": 256,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "x0"
+            }
+        },
+        {
+            "init": {
+                "name": "ConvTranspose2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 256,
+                    "out_channels": 128,
+                    "kernel_size": 2,
+                    "bias": true,
+                    "stride": 2,
+                    "padding": 0,
+                    "output_padding": 0
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "x0"
+            }
+        },
+        {
+            "init": {},
+            "forward": {
+                "name": "torch.concat",
+                "in_prefix2": "[{0}]",
+                "in": [
+                    "x1",
+                    "x0"
+                ],
+                "out": "x0",
+                "args": {
+                    "dim": 1
+                }
+            }
+        },
+        {
+            "init": {
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 256,
+                    "out_channels": 128,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "x0"
+            }
+        },
+        {
+            "init": {
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 128,
+                    "out_channels": 128,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "x0"
+            }
+        },
+        {
+            "init": {
+                "name": "ConvTranspose2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 128,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 3,
+                    "padding": 0,
+                    "output_padding": 0
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "x0"
+            }
+        },
+        // Combine
+        {
+            "init": {},
+            "forward": {
+                "name": "torch.concat",
+                "in_prefix2": "[{0}]",
+                "in": [
+                    "f0",
+                    "x0"
+                ],
+                "out": "x0",
+                "args": {
+                    "dim": 1
+                }
+            }
+        },
+        // ------CLTYPE
+        {
+            "init": {
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 128,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "CLTYPE"
+            }
+        },
+        {
+            "init": {
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "CLTYPE",
+                "out": "CLTYPE"
+            }
+        },
+        {
+            "init": {
+                "name": "nn.Conv2d",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 10,
+                    "kernel_size": 1,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 0,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "CLTYPE",
+                "out": "CLTYPE"
+            }
+        },
+        // ------CLOT
+        {
+            "init": {
+                "identifier": "CLOT_15",
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 128,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "CLOT"
+            }
+        },
+        {
+            "init": {
+                "identifier": "CLOT_16",
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "CLOT",
+                "out": "CLOT"
+            }
+        },
+        {
+            "init": {
+                "identifier": "CLOT_17",
+                "name": "nn.Conv2d",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 1,
+                    "kernel_size": 1,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 0,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "CLOT",
+                "out": "CLOT"
+            }
+        },
+        // ------CLTT
+        {
+            "init": {
+                "identifier": "CLTT_15",
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 128,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "CLTT"
+            }
+        },
+        {
+            "init": {
+                "identifier": "CLTT_16",
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "CLTT",
+                "out": "CLTT"
+            }
+        },
+        {
+            "init": {
+                "identifier": "CLTT_17",
+                "name": "nn.Conv2d",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 1,
+                    "kernel_size": 1,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 0,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "CLTT",
+                "out": "CLTT"
+            }
+        },
+        // ------CLTH
+        {
+            "init": {
+                "identifier": "CLTH_15",
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 128,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "CLTH"
+            }
+        },
+        {
+            "init": {
+                "identifier": "CLTH_16",
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "CLTH",
+                "out": "CLTH"
+            }
+        },
+        {
+            "init": {
+                "identifier": "CLTH_17",
+                "name": "nn.Conv2d",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 1,
+                    "kernel_size": 1,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 0,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "CLTH",
+                "out": "CLTH"
+            }
+        },
+        // ------CLER_23
+        {
+            "init": {
+                "identifier": "CLER_23_15",
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 128,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "x0",
+                "out": "CLER_23"
+            }
+        },
+        {
+            "init": {
+                "identifier": "CLER_23_16",
+                "name": "DepthwiseConv2d_BN2d_ReLU",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 64,
+                    "kernel_size": 3,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 1,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "CLER_23",
+                "out": "CLER_23"
+            }
+        },
+        {
+            "init": {
+                "identifier": "CLER_23_17",
+                "name": "nn.Conv2d",
+                "args": {
+                    "in_channels": 64,
+                    "out_channels": 1,
+                    "kernel_size": 1,
+                    "bias": true,
+                    "stride": 1,
+                    "padding": 0,
+                    "dilation": 1
+                }
+            },
+            "forward": {
+                "in": "CLER_23",
+                "out": "CLER_23"
+            }
+        }
+    ]
+}
