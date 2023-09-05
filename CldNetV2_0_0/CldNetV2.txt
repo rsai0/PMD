@@ -1,0 +1,306 @@
+NNN(
+  (MD): ModuleDict(
+    (0): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(29, 29, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=29)
+            (1): Conv2d(29, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (1): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+            (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (2): DepthwiseASPP(
+      (netlist): ModuleList(
+        (0): Sequential(
+          (0): DepthwiseConv2d(
+            (DepthwiseConv2d): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+              (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (1): Sequential(
+          (0): DepthwiseConv2d(
+            (DepthwiseConv2d): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(3, 3), dilation=(3, 3), groups=64)
+              (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (2): Sequential(
+          (0): DepthwiseConv2d(
+            (DepthwiseConv2d): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(6, 6), dilation=(6, 6), groups=64)
+              (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (3): Sequential(
+          (0): DepthwiseConv2d(
+            (DepthwiseConv2d): Sequential(
+              (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(9, 9), dilation=(9, 9), groups=64)
+              (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+            )
+          )
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (aapool2d): Sequential(
+        (0): AdaptiveAvgPool2d(output_size=(1, 1))
+        (1): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), groups=64)
+            (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (3): ReLU()
+      )
+      (conv2d): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(320, 320, kernel_size=(1, 1), stride=(1, 1), groups=320)
+            (1): Conv2d(320, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (3): MaxPool2d(kernel_size=3, stride=3, padding=0, dilation=1, ceil_mode=False)
+    (4): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+            (1): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (5): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+            (1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (6): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (7): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+            (1): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (8): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+            (1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (9): ConvTranspose2d_BN2d_ReLU(
+      (ConvTranspose2d_BN2d_ReLU): Sequential(
+        (0): ConvTranspose2d(256, 128, kernel_size=(2, 2), stride=(2, 2))
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (11): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+            (1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (12): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+            (1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (13): ConvTranspose2d_BN2d_ReLU(
+      (ConvTranspose2d_BN2d_ReLU): Sequential(
+        (0): ConvTranspose2d(128, 64, kernel_size=(3, 3), stride=(3, 3))
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (15): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+            (1): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (16): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+            (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (17): Conv2d(64, 10, kernel_size=(1, 1), stride=(1, 1))
+    (CLOT_15): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+            (1): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (CLOT_16): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+            (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (CLOT_17): Conv2d(64, 1, kernel_size=(1, 1), stride=(1, 1))
+    (CLTT_15): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+            (1): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (CLTT_16): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+            (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (CLTT_17): Conv2d(64, 1, kernel_size=(1, 1), stride=(1, 1))
+    (CLTH_15): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+            (1): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (CLTH_16): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+            (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (CLTH_17): Conv2d(64, 1, kernel_size=(1, 1), stride=(1, 1))
+    (CLER_23_15): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+            (1): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (CLER_23_16): DepthwiseConv2d_BN2d_ReLU(
+      (DepthwiseConv2d_BN2d_ReLU): Sequential(
+        (0): DepthwiseConv2d(
+          (DepthwiseConv2d): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+            (1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+      )
+    )
+    (CLER_23_17): Conv2d(64, 1, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
