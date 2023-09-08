@@ -1,0 +1,110 @@
+{
+    "001001": {
+        "description": "Transfer learning, Muti-task, cloud property retrieval [CLTYPE, CLOT, CLTT, CLTH, CLER_23]",
+        "show_log": false,
+        "random_seed": 666666,
+        "device": "cuda", // cpu or cuda
+        "is_remove": false,
+        "out_dir": "./CldNetV2_online_",
+        "load_data": {
+            "name": "load_dataV2",
+            "params": {
+                "RS_dir": "E:/H08_RS_Dir/",
+                "Cld_dir": "E:/H08_Cld_Dir/",
+                "start_time": "2023-05-01 00:00:00",
+                "end_time": "2023-06-02 23:00:00",
+                "k_time": "2021-12-31 23:00:00",
+                "Himawari_flag": "H09",
+                "freq": "3h",
+                "is_norm": true,
+                "RS_Threshold_file": "./RS_Threshold.jsonc",
+                "vr_file": "./value_range.csv",
+                "Cld_Vars": [
+                    "CLTYPE",
+                    "CLOT",
+                    "CLTT",
+                    "CLTH",
+                    "CLER_23"
+                ],
+                "add_vars": [
+                    "SAZ",
+                    "SAA",
+                    "SOZ",
+                    "SOA"
+                ],
+                "Bidx": [
+                    0, // -visible
+                    4, // -visible
+                    11,
+                    21, // -visible
+                    25, // -visible
+                    28, // -visible
+                    30, // -visible
+                    31, // -visible
+                    35,
+                    36,
+                    37,
+                    44,
+                    50,
+                    51,
+                    56,
+                    57,
+                    58,
+                    64,
+                    65,
+                    66,
+                    70,
+                    71,
+                    72,
+                    73,
+                    74
+                ]
+            },
+            "mask_bands": [
+                0,
+                1,
+                3,
+                4,
+                5,
+                6,
+                7
+            ],
+            "mask_ratio": {
+                "daytime": -1.0,
+                "nighttime": 1.0
+            }
+        },
+        "flashback": true,
+        "SOZ": 60.0,
+        "kf_idx": 1,
+        "checkpoint": {
+            "daytime": "./CldNetV2-W.pth.tar",
+            "nighttime": "./CldNetV2-O.pth.tar"
+        },
+        "is_DataParallel": false,
+        "batch_size": 1,
+        "hw": [
+            1,
+            1
+        ],
+        "target_name": [
+            "CLTYPE",
+            "CLOT",
+            "CLTT",
+            "CLTH",
+            "CLER_23"
+        ],
+        "logging": {
+            "mode": "a+",
+            "setLevel": 20, //10:debug, 20:info, 30:warning, 40:error, 50:critical
+            "file_formatter": {
+                "fmt": "%(asctime)s-%(levelname)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            },
+            "terminal_formatter": {
+                "fmt": "%(name)s-%(levelname)s %(asctime)s: %(message)s",
+                "datefmt": "%Y-%m-%d %H:%M:%S %p"
+            }
+        }
+    }
+}
