@@ -6,8 +6,9 @@ python CldNetV2_inference_online.py
 ```
 
 ## File description
-CldNetV2.txt: the specific parameters of the network structure.
+| Filename                        | Description                                                           |
+| :------------------------------ | :-------------------------------------------------------------------- |
+| CldNetV2.txt                    | the specific parameters of the network structure CldNet version 2.0.0 |
+| CldNetV2_inference_online.py    | cloud property inference function                                     |
+| CldNetV2_inference_online.jsonc | cloud property inference configuration                                |
 
-CldNetV2_inference_online.py: Cloud property inference function.
-
-CldNetV2_inference_online.jsonc: Cloud property inference configuration.
