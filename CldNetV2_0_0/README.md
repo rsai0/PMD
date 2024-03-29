@@ -1,1 +1,1 @@
-All content in this folder will be redirected to the website [https://github.com/metdai/PMD-CldNetV2](https://github.com/metdai/PMD-CldNetV2) .
+All content in this folder has been moved to the website [https://github.com/metdai/PMD-CldNetV2](https://github.com/metdai/PMD-CldNetV2) .
